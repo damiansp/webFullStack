@@ -1,3 +1,8 @@
+body {
+    padding: 50px 0 0 0;
+    z-index: 0;
+}
+
 .address {
     font-size: 80%;
     margin: 0px;
@@ -15,6 +20,10 @@
     margin: 0px auto;
     background: #9575CD;
     color: floralwhite;
+}
+
+.navbar-dark {
+    background-color: #512da8;
 }
 
 .row-content {
