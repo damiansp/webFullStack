@@ -1,0 +1,83 @@
+/* To compile into css:
+ * npm install --save-dev node-sass
+ * npm run scss
+ */
+
+/* Vars */
+$lt-grey: #ddd;
+$background-dark: #512DA8;
+$background-light: #9575CD;
+$background-pale: #D1C4E9;
+$carousel-item-height: 300px;
+
+/* Mix-ins */
+@mixin zero-margin($pad-up-dn, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-dn $pad-left-right;
+}
+
+
+/* Generic */
+address {
+    font-size: 80%;
+    margin: 0px;
+    color: #0F0F0F;
+}
+
+body {
+    padding: 50px 0px 0px 0px;
+    z-index: 0;
+}
+
+.carousel {
+    background: $background-dark;
+
+    .carousel-item {
+        height: $carousel-item-height;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-height: 300px;
+        }
+    }
+}
+
+#carouselButton {
+    right: 0px;
+    position: absolute;
+    botton: 0px;
+}
+
+.footer {
+    background-color: $background-pale;
+    @include zero-margin(20px, 0px);
+}
+
+.jumbotron {
+    @include zero-margin(70px, 30px);
+    background: $background-light;
+    color: floralwhite;
+}
+
+.navbar-dark {
+    background-color: $background-dark;
+}
+
+.row-content {
+    @include zero-margin(50px, 0px);
+    border-bottom: 1px ridge;
+    min-height: 400px;
+}
+
+.row-header {
+    @include zero-margin(0px, 0px);
+}
+
+.tab-content {
+    border-left: 1px solid $lt-grey;
+    border-right: 1px solid $lt-grey;
+    border-bottom: 1px solid $lt-grey;
+    padding: 10px;
+}
