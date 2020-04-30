@@ -59,7 +59,7 @@
     "bootstrap-social": "^5.1.1",
     "font-awesome": "^4.7.0",
     "gulp-imagemin": "^7.1.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "peer": "^0.2.10",
     "popper": "^1.0.1",
     "popper.js": "^1.16.0"
