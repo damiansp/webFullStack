@@ -1,11 +1,9 @@
 import cgi
 from http.server import BaseHTTPRequestHandler, HTTPServer
-import sys
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-sys.path.append('../db')
 from database_setup import Restaurant, Base, MenuItem
 
 
