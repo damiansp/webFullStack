@@ -1,5 +1,19 @@
 import cgi
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import sys
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+sys.path.append('../db')
+from database_setup import Restaurant, Base, MenuItem
+
+
+print('Initializing database connection...')
+engine = create_engine('sqlite:///restaurantmenu.db')
+Base.metadata.bind = engine
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
 
 
 def main():
@@ -26,6 +40,8 @@ class WebserverHandler(BaseHTTPRequestHandler):
             for page in ['/hello', '/hola']:
                 if self.path.endswith(page):
                     self._populate_page(page)
+            if self.path.endswith('/restaurants'):
+                self._list_restaurants()
         except IOError:
             self.send_error(404, f'File Not Found: {self.path}')
 
@@ -46,6 +62,26 @@ class WebserverHandler(BaseHTTPRequestHandler):
         self.wfile.write(output)
         print(output)
         return
+
+    def _list_restaurants(self):
+        try:
+            print('Getting restaurant list')
+            restaurants = session.query(Restaurant).all()
+            print('restaurants:', restaurants)
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            output = '<html><body>'
+            for r in restaurants:
+                output += f'<h2>{r.name}</h2></br></br>'
+            output += '</body></html>'
+            output = bytes(output, encoding='utf-8')
+            self.wfile.write(output)
+            print(output)
+            return
+        except:
+            raise
+        
 
     def do_POST(self):
         try:
