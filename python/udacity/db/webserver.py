@@ -71,7 +71,9 @@ class WebserverHandler(BaseHTTPRequestHandler):
             self.end_headers()
             output = '<html><body>'
             for r in restaurants:
-                output += f'<h2>{r.name}</h2></br></br>'
+                output += f'<h2>{r.name}</h2></br>'
+                output += '<a href="#">Edit</a></br>'
+                output += '<a href="#">Delete</a></br></br>'
             output += '</body></html>'
             output = bytes(output, encoding='utf-8')
             self.wfile.write(output)
