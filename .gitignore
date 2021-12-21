@@ -6,16 +6,21 @@
 
 # Dirs
 #-----------------------------
-node_modules/
+*.egg-info/
+build/
 dist/
+htmlcov/
+instance/
+node_modules/
 
 
 # Python
 #-----------------------------
 __pycache__
 *.pyc
+.pytest_cache/
 
 
 # Files
 #-----------------------------
-
+.coverage
