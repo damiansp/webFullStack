@@ -15,7 +15,7 @@ def create_app(test_config=None):
         app.config.from_mapping(test_config)
     # ensure instance folder exists
     try:
-        os.makedirs(app.instance_path)
+        os.path.exists(app.instance_path) or os.makedirs(app.instance_path)
     except OSError as e:
         print(f'OSErr in init.create_app():\n{e}')
         pass
@@ -24,4 +24,6 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
 
+    from . import db
+    db.init_app(app)
     return app
