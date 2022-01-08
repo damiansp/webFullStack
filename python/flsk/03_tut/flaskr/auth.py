@@ -55,7 +55,7 @@ def login():
             session['user_id'] = user['id']
             return redirect(url_for('index'))
 
-        flase(err)
+        flash(err)
     return render_template('auth/login.html')
 
 
@@ -68,6 +68,7 @@ def load_logged_in_user():
         g.user = (get_db()
                   .execute('SELECT * FROM user WHERE id = ?', (user_id))
                   .fetchone())
+
 
 @bp.route('/logout')
 def logout():
