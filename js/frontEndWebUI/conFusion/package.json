@@ -45,7 +45,7 @@
     "gulp-usemin": "^0.3.29",
     "htmlmin": "0.0.7",
     "jit-grunt": "^0.10.0",
-    "lite-server": "^2.3.0",
+    "lite-server": "^2.6.1",
     "node-sass": "^4.13.1",
     "onchange": "^6.1.0",
     "parallelshell": "^3.0.2",
@@ -60,7 +60,7 @@
     "font-awesome": "^4.7.0",
     "gulp-imagemin": "^7.1.0",
     "jquery": "^3.4.1",
-    "peer": "^0.2.10",
+    "peer": "^0.6.1",
     "popper": "^1.0.1",
     "popper.js": "^1.16.0"
   }
